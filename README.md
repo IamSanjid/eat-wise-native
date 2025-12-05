@@ -6,7 +6,6 @@ Download [Godot-4.5.1](https://godotengine.org/download/archive/). Open the `pro
 
 # Build Export Template
 Prerequisites: Python 3, [Scons](https://scons.org/), MSVC(Visual Studio 2022+). [More info can found here.](https://docs.godotengine.org/en/4.4/contributing/development/compiling/index.html)
-Git Repo: https://github.com/godotengine/godot/tree/4.5.1-stable
 1. Clone [Godot-4.5.1-stable](https://github.com/godotengine/godot/tree/4.5.1-stable)
    * On Windows open `Developer PowerShell for VS 2022`.
 2. Copy `template_release.gdbuild` and `template_release.py` into the cloned folder.
