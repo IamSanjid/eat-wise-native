@@ -12,6 +12,16 @@ func _ready() -> void:
 	var custom_min_size = ParseCssParts.CssVector2.from(min_size).to_vec(get_parent_control())
 	custom_minimum_size = custom_min_size
 
-func _on_item_rect_changed() -> void:
+func set_custom_size(new_size: Vector2):
+	custom_minimum_size = new_size
+	
+	await get_tree().process_frame
+	if !visible: return
+	# re-calculate size, probably required because we're in low process mode
+	visible = false
+	set_deferred("visible", true)
+
+
+func _on_resized() -> void:
 	var custom_min_size = ParseCssParts.CssVector2.from(min_size).to_vec(get_parent_control())
-	custom_minimum_size = custom_min_size
+	set_custom_size(custom_min_size)

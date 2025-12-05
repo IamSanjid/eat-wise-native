@@ -85,6 +85,7 @@ layout_mode = 2
 
 [node name="LableHeader" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_u36bc")]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_n66jl")
 theme_override_font_sizes/font_size = 64
 text = "EatWise"
@@ -92,6 +93,7 @@ horizontal_alignment = 1
 
 [node name="LabelMediumParagraph" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_u36bc")]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_pem21")
 theme_override_font_sizes/font_size = 23
 text = "Smart food management for every household"
@@ -99,6 +101,7 @@ horizontal_alignment = 1
 
 [node name="LabelRegularParagraph" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_e2h1w")]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_83y50")
 text = "Track your inventory, reduce waste, and make smarter food choices with our intuitive platform."
 horizontal_alignment = 1
@@ -174,6 +177,7 @@ override_font_size = 32
 
 [node name="LabelMediumParagraph" parent="MarginContainer2/HBoxContainer/VBoxContainer" instance=ExtResource("2_u36bc")]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Track Inventory"
 horizontal_alignment = 1
 override_font_size = 16
@@ -190,6 +194,7 @@ override_font_size = 32
 
 [node name="LabelMediumParagraph" parent="MarginContainer2/HBoxContainer/VBoxContainer2" instance=ExtResource("2_u36bc")]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Manage Diet"
 override_font_size = 16
 
@@ -205,5 +210,6 @@ override_font_size = 32
 
 [node name="LabelMediumParagraph" parent="MarginContainer2/HBoxContainer/VBoxContainer3" instance=ExtResource("2_u36bc")]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Save Money"
 override_font_size = 16
