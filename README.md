@@ -15,3 +15,6 @@ Some export template are already present in `.export-templates`, no-need to buil
 
 # TODO
 Finish Login, Register and User pages.
+
+# Demo
+https://github.com/user-attachments/assets/e981f36b-5853-4d53-ba9d-dfefba717a53
