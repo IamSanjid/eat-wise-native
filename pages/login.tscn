@@ -1,0 +1,147 @@
+[gd_scene load_steps=10 format=3 uid="uid://buiy1lyv1ifcu"]
+
+[ext_resource type="Script" uid="uid://dd8tamehhg5nu" path="res://controls/card.gd" id="1_tc5yd"]
+[ext_resource type="Script" uid="uid://dt0waq771fsg0" path="res://pages/login.gd" id="2_i424o"]
+[ext_resource type="PackedScene" uid="uid://b4hsjxxb46apu" path="res://controls/label_header.tscn" id="2_vuvgv"]
+[ext_resource type="PackedScene" uid="uid://c7n6hacrbxay5" path="res://controls/label_regular_paragraph.tscn" id="3_8va1s"]
+[ext_resource type="StyleBox" uid="uid://buuadlgh8jg22" path="res://styles/button_normal.tres" id="4_w1pgi"]
+[ext_resource type="StyleBox" uid="uid://b3ls4s3mawppu" path="res://styles/button_pressed.tres" id="5_gj18t"]
+[ext_resource type="StyleBox" uid="uid://b2cy02c83n6uy" path="res://styles/button_hovered.tres" id="6_gj18t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l0c1q"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0.8980392, 0.90588236, 0.92156863, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tc5yd"]
+content_margin_left = 12.0
+content_margin_top = 10.0
+content_margin_right = 12.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8980392, 0.90588236, 0.92156863, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Login" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_l0c1q")
+script = ExtResource("1_tc5yd")
+min_size = "45vw, 0"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 20
+script = ExtResource("2_i424o")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="LableHeader" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_vuvgv")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Login"
+override_font_size = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.98
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Username"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_tc5yd")
+alignment = 3
+backspace_deletes_composite_character_enabled = true
+clear_button_enabled = true
+caret_blink = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Password"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_tc5yd")
+alignment = 3
+backspace_deletes_composite_character_enabled = true
+virtual_keyboard_type = 6
+select_all_on_focus = true
+secret = true
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_styles/normal = ExtResource("4_w1pgi")
+theme_override_styles/pressed = ExtResource("5_gj18t")
+theme_override_styles/hover = ExtResource("6_gj18t")
+text = "Login"
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+size_flags_stretch_ratio = 0.02
+
+[node name="LabelRegularParagraph" parent="MarginContainer/VBoxContainer/VBoxContainer2" instance=ExtResource("3_8va1s")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.41960785, 0.44705883, 0.5019608, 1)
+text = "Need an account?"
+
+[node name="GotoRegister" type="RichTextLabel" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/default_color = Color(0.41960785, 0.44705883, 0.5019608, 1)
+bbcode_enabled = true
+text = "[url]Register[/url]"
+
+[connection signal="item_rect_changed" from="." to="." method="_on_item_rect_changed"]
+[connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="meta_clicked" from="MarginContainer/VBoxContainer/VBoxContainer2/GotoRegister" to="MarginContainer" method="_on_goto_register_meta_clicked"]

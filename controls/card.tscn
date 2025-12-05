@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://icj1nokoebtt"]
+
+[ext_resource type="Script" uid="uid://dd8tamehhg5nu" path="res://controls/card.gd" id="1_l0c1q"]
+[ext_resource type="StyleBox" uid="uid://c8nky76tg808e" path="res://styles/card_normal.stylebox" id="1_vif8d"]
+
+[node name="Card" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = ExtResource("1_vif8d")
+script = ExtResource("1_l0c1q")
+
+[connection signal="item_rect_changed" from="." to="." method="_on_item_rect_changed"]

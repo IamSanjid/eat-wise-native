@@ -1,0 +1,168 @@
+[gd_scene load_steps=10 format=3 uid="uid://bcbos6dk7lcjd"]
+
+[ext_resource type="Theme" uid="uid://b5w8a6v8m6iw2" path="res://themes/default.tres" id="1_8okjs"]
+[ext_resource type="Script" uid="uid://d04gwaqk80yl7" path="res://pages/inventory.gd" id="2_8okjs"]
+[ext_resource type="PackedScene" uid="uid://icj1nokoebtt" path="res://controls/card.tscn" id="3_5i3jk"]
+[ext_resource type="Texture2D" uid="uid://ds42h7titdp71" path="res://icon.png" id="4_inlgs"]
+[ext_resource type="PackedScene" uid="uid://b4hsjxxb46apu" path="res://controls/label_header.tscn" id="5_x481g"]
+[ext_resource type="PackedScene" uid="uid://c7n6hacrbxay5" path="res://controls/label_regular_paragraph.tscn" id="6_py16u"]
+[ext_resource type="PackedScene" uid="uid://cjnb5ae75eeww" path="res://controls/auto_grid_container.tscn" id="7_dch32"]
+[ext_resource type="PackedScene" uid="uid://d1l6a27pqeu" path="res://components/item_margined.tscn" id="8_8okjs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l0c1q"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0.8980392, 0.90588236, 0.92156863, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Inventory" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_8okjs")
+theme_override_constants/separation = 2
+script = ExtResource("2_8okjs")
+item = ExtResource("8_8okjs")
+
+[node name="Card" parent="." instance=ExtResource("3_5i3jk")]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+theme_override_styles/panel = SubResource("StyleBoxFlat_l0c1q")
+min_size = "50vw, 0"
+
+[node name="MarginContainer" type="MarginContainer" parent="Card"]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Card/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Card/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Card/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("4_inlgs")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LableHeader" parent="Card/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_x481g")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Inventory"
+override_font_size = 20
+
+[node name="LabelRegularParagraph" parent="Card/MarginContainer/VBoxContainer" instance=ExtResource("6_py16u")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.41960785, 0.44705883, 0.5019608, 1)
+text = "Helpful articles, links and guides. New items may appear over time."
+
+[node name="Card2" parent="." instance=ExtResource("3_5i3jk")]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+theme_override_styles/panel = SubResource("StyleBoxFlat_l0c1q")
+min_size = "50vw, 0"
+
+[node name="MarginContainer" type="MarginContainer" parent="Card2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Card2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Card2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 10
+
+[node name="SearchName" type="LineEdit" parent="Card2/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Search by name..."
+
+[node name="SearchByCategory" type="OptionButton" parent="Card2/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Card2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 10
+
+[node name="SearchByReserved" type="OptionButton" parent="Card2/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 1
+popup/item_0/text = "All Items"
+popup/item_0/id = 0
+
+[node name="RefreshButton" type="Button" parent="Card2/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Refresh"
+
+[node name="Card3" parent="." instance=ExtResource("3_5i3jk")]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+theme_override_styles/panel = SubResource("StyleBoxFlat_l0c1q")
+min_size = "50vw, 0"
+
+[node name="MarginContainer" type="MarginContainer" parent="Card3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Card3/MarginContainer"]
+layout_mode = 2
+follow_focus = true
+draw_focus_border = true
+
+[node name="ItemContainer" parent="Card3/MarginContainer/ScrollContainer" instance=ExtResource("7_dch32")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 12
+item_width = 256
+
+[node name="LabelLoading" parent="Card3/MarginContainer" instance=ExtResource("6_py16u")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0.41960785, 0.44705883, 0.5019608, 1)
+theme_override_font_sizes/font_size = 14
+text = "Loading items..."
+override_font_size = 14
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+unique_name_in_owner = true

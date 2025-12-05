@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1mtlhtrnygd0"]
+
+[ext_resource type="Script" uid="uid://dd8tamehhg5nu" path="res://controls/card.gd" id="1_4qvm0"]
+[ext_resource type="PackedScene" uid="uid://bkr8y1ycf4a7p" path="res://controls/label_medium_paragraph.tscn" id="2_4qvm0"]
+[ext_resource type="PackedScene" uid="uid://d2yqkuobjt658" path="res://controls/badge.tscn" id="4_4qvm0"]
+[ext_resource type="PackedScene" uid="uid://c7n6hacrbxay5" path="res://controls/label_regular_paragraph.tscn" id="5_utl5e"]
+[ext_resource type="Script" uid="uid://0pk3binl15c8" path="res://controls/float.gd" id="6_6ll47"]
+[ext_resource type="StyleBox" uid="uid://cddi5las2lts8" path="res://styles/floating_card_hover.stylebox" id="7_oll2o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4qvm0"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8980392, 0.90588236, 0.92156863, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Resource" type="PanelContainer"]
+offset_right = 234.0
+offset_bottom = 168.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_4qvm0")
+script = ExtResource("1_4qvm0")
+min_size = "0, 0"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="LabelTitle" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_4qvm0")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Resource Title/Summary"
+override_font_size = 16
+
+[node name="Badges" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BadgeCategory" parent="MarginContainer/VBoxContainer/Badges" instance=ExtResource("4_4qvm0")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BadgeType" parent="MarginContainer/VBoxContainer/Badges" instance=ExtResource("4_4qvm0")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LabelDesc" parent="MarginContainer/VBoxContainer" instance=ExtResource("5_utl5e")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.21568628, 0.25490198, 0.31764707, 1)
+text = "Some details..."
+
+[node name="VisitLink" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.21960784, 0.4, 0.25490198, 1)
+bbcode_enabled = true
+text = "[url]Visit Link[/url] →"
+
+[node name="Float" type="Node" parent="." node_paths=PackedStringArray("control")]
+script = ExtResource("6_6ll47")
+hover_offset = Vector2(0, -1)
+animation_duration = 0.03
+control = NodePath("..")
+hover_override = Dictionary[String, StyleBox]({
+"panel": ExtResource("7_oll2o")
+})
+metadata/_custom_type_script = "uid://0pk3binl15c8"
+
+[connection signal="item_rect_changed" from="." to="." method="_on_item_rect_changed"]
+[connection signal="gui_input" from="MarginContainer" to="MarginContainer" method="_on_gui_input"]
+[connection signal="meta_clicked" from="MarginContainer/VBoxContainer/VisitLink" to="MarginContainer" method="_on_goto_register_meta_clicked"]

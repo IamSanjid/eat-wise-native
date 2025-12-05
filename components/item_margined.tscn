@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1l6a27pqeu"]
+
+[ext_resource type="PackedScene" uid="uid://2k88iql648t1" path="res://components/item.tscn" id="1_5moin"]
+[ext_resource type="Script" uid="uid://c1ydaf12h3ojl" path="res://components/item.gd" id="1_wpdqu"]
+
+[node name="ItemMargined" type="MarginContainer"]
+offset_right = 262.0
+offset_bottom = 116.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_wpdqu")
+
+[node name="Item" parent="." instance=ExtResource("1_5moin")]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="DetailsContainer" parent="Item/MarginContainer/VBoxContainer" index="2"]
+visible = false
+
+[editable path="Item"]

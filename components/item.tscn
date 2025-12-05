@@ -1,0 +1,147 @@
+[gd_scene load_steps=8 format=3 uid="uid://2k88iql648t1"]
+
+[ext_resource type="Script" uid="uid://dd8tamehhg5nu" path="res://controls/card.gd" id="1_x26xh"]
+[ext_resource type="PackedScene" uid="uid://bkr8y1ycf4a7p" path="res://controls/label_medium_paragraph.tscn" id="3_fi3yh"]
+[ext_resource type="PackedScene" uid="uid://d2yqkuobjt658" path="res://controls/badge.tscn" id="4_4vv3e"]
+[ext_resource type="PackedScene" uid="uid://c7n6hacrbxay5" path="res://controls/label_regular_paragraph.tscn" id="5_i4uqm"]
+[ext_resource type="Script" uid="uid://0pk3binl15c8" path="res://controls/float.gd" id="6_6ygew"]
+[ext_resource type="StyleBox" uid="uid://cddi5las2lts8" path="res://styles/floating_card_hover.stylebox" id="7_qxvsa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4qvm0"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8980392, 0.90588236, 0.92156863, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Item" type="PanelContainer"]
+offset_right = 252.0
+offset_bottom = 168.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_4qvm0")
+script = ExtResource("1_x26xh")
+min_size = "0, 0"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Name" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_fi3yh")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Item Name"
+override_font_size = 16
+
+[node name="Badges" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="CategoryBadge" parent="MarginContainer/VBoxContainer/Badges" instance=ExtResource("4_4vv3e")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ExpTimeBadge" parent="MarginContainer/VBoxContainer/Badges" instance=ExtResource("4_4vv3e")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PriceBadge" parent="MarginContainer/VBoxContainer/Badges" instance=ExtResource("4_4vv3e")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DetailsContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/DetailsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/DetailsContainer/GridContainer"]
+layout_mode = 2
+
+[node name="LabelMediumParagraph2" parent="MarginContainer/VBoxContainer/DetailsContainer/GridContainer/HBoxContainer" instance=ExtResource("3_fi3yh")]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Category:"
+override_font_size = 14
+
+[node name="CategoryDetails" parent="MarginContainer/VBoxContainer/DetailsContainer/GridContainer/HBoxContainer" instance=ExtResource("5_i4uqm")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Fruit"
+override_font_size = 14
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/DetailsContainer/GridContainer"]
+layout_mode = 2
+
+[node name="LabelMediumParagraph2" parent="MarginContainer/VBoxContainer/DetailsContainer/GridContainer/HBoxContainer2" instance=ExtResource("3_fi3yh")]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Cost/Unit:"
+override_font_size = 14
+
+[node name="PriceDetails" parent="MarginContainer/VBoxContainer/DetailsContainer/GridContainer/HBoxContainer2" instance=ExtResource("5_i4uqm")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "30.0 tk"
+override_font_size = 14
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/DetailsContainer/GridContainer"]
+layout_mode = 2
+
+[node name="LabelMediumParagraph2" parent="MarginContainer/VBoxContainer/DetailsContainer/GridContainer/HBoxContainer3" instance=ExtResource("3_fi3yh")]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Expires in:"
+override_font_size = 14
+
+[node name="ExpTimeDetails" parent="MarginContainer/VBoxContainer/DetailsContainer/GridContainer/HBoxContainer3" instance=ExtResource("5_i4uqm")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "10 days"
+override_font_size = 14
+
+[node name="Float" type="Node" parent="." node_paths=PackedStringArray("control")]
+script = ExtResource("6_6ygew")
+hover_offset = Vector2(0, -1)
+animation_duration = 0.03
+control = NodePath("..")
+hover_override = Dictionary[String, StyleBox]({
+"panel": ExtResource("7_qxvsa")
+})
+metadata/_custom_type_script = "uid://0pk3binl15c8"
+
+[connection signal="item_rect_changed" from="." to="." method="_on_item_rect_changed"]
+[connection signal="gui_input" from="MarginContainer" to="MarginContainer" method="_on_gui_input"]

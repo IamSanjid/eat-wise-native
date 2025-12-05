@@ -1,0 +1,40 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="EatWise"
+run/main_scene="uid://cs48cniffcvw5"
+config/features=PackedStringArray("4.5", "GL Compatibility")
+run/low_processor_mode=true
+config/icon="uid://ds42h7titdp71"
+
+[autoload]
+
+UISettings="*res://ui_settings/ui_settings.gd"
+Controller="*res://autoloads/controller.gd"
+ParseCssParts="*res://utils/parse_css_parts.gd"
+Filter="*res://utils/filter.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1280
+window/size/window_height_override=720
+
+[dotnet]
+
+project/assembly_name="EatWise"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

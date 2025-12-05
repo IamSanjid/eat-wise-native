@@ -1,0 +1,89 @@
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://b5w8a6v8m6iw2"]
+
+[ext_resource type="FontFile" uid="uid://daxn1lidk3pq6" path="res://fonts/NotoSerifNerdFont-Bold.ttf" id="1_5hd2i"]
+[ext_resource type="FontFile" uid="uid://b3d1p5fht5nug" path="res://fonts/NotoColorEmoji-Regular.ttf" id="2_cgbfu"]
+[ext_resource type="FontFile" uid="uid://dcu5wmsf6c1x4" path="res://fonts/NotoSerifNerdFont-Italic.ttf" id="2_d3e7e"]
+[ext_resource type="FontFile" uid="uid://c1clhy8lycrlx" path="res://fonts/NotoSerifNerdFont-Medium.ttf" id="3_cgbfu"]
+[ext_resource type="FontFile" uid="uid://sm6meuyr8dj7" path="res://fonts/NotoSerifNerdFont-Regular.ttf" id="4_k1vgm"]
+[ext_resource type="FontFile" uid="uid://b5u2o2h67fkhh" path="res://fonts/NotoSerifNerdFont-SemiBold.ttf" id="5_ck2yl"]
+[ext_resource type="StyleBox" uid="uid://b2cy02c83n6uy" path="res://styles/button_hovered.tres" id="7_0qmv4"]
+[ext_resource type="StyleBox" uid="uid://blyfcg77pkkjr" path="res://styles/line_edit_normal.tres" id="7_cgbfu"]
+[ext_resource type="StyleBox" uid="uid://b5wuhpmn7ac3o" path="res://styles/line_edit_focus.tres" id="7_k1vgm"]
+[ext_resource type="StyleBox" uid="uid://buuadlgh8jg22" path="res://styles/button_normal.tres" id="8_8j4t7"]
+[ext_resource type="StyleBox" uid="uid://b3ls4s3mawppu" path="res://styles/button_pressed.tres" id="9_nlad3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5hd2i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5hd2i"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.21960784, 0.4, 0.25490198, 0.6666667)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d3e7e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qmv4"]
+bg_color = Color(0.37629682, 0.59461147, 0.9631924, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[resource]
+default_font = ExtResource("4_k1vgm")
+default_font_size = 16
+/fonts/bold = ExtResource("1_5hd2i")
+/fonts/emoji = ExtResource("2_cgbfu")
+/fonts/italic = ExtResource("2_d3e7e")
+/fonts/medium = ExtResource("3_cgbfu")
+/fonts/regular = ExtResource("4_k1vgm")
+/fonts/semi_bold = ExtResource("5_ck2yl")
+/styles/focus = SubResource("StyleBoxEmpty_5hd2i")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/styles/disabled = SubResource("StyleBoxFlat_5hd2i")
+Button/styles/focus = SubResource("StyleBoxEmpty_d3e7e")
+Button/styles/hover = ExtResource("7_0qmv4")
+Button/styles/normal = ExtResource("8_8j4t7")
+Button/styles/pressed = ExtResource("9_nlad3")
+LineEdit/colors/caret_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0.41960785, 0.44705883, 0.5019608, 1)
+LineEdit/colors/font_selected_color = Color(0, 0, 0, 1)
+LineEdit/font_sizes/font_size = 14
+LineEdit/styles/focus = ExtResource("7_k1vgm")
+LineEdit/styles/normal = ExtResource("7_cgbfu")
+OptionButton/colors/font_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_focus_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_hover_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+OptionButton/font_sizes/font_size = 14
+OptionButton/styles/focus = ExtResource("7_k1vgm")
+OptionButton/styles/hover = ExtResource("7_cgbfu")
+OptionButton/styles/normal = ExtResource("7_cgbfu")
+OptionButton/styles/pressed = ExtResource("7_cgbfu")
+PopupMenu/colors/font_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_hover_color = Color(0, 0, 0, 1)
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_0qmv4")
+PopupMenu/styles/panel = ExtResource("7_cgbfu")

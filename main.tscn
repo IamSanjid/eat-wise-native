@@ -1,0 +1,161 @@
+[gd_scene load_steps=16 format=3 uid="uid://cs48cniffcvw5"]
+
+[ext_resource type="Theme" uid="uid://b5w8a6v8m6iw2" path="res://themes/default.tres" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://rl4othjeqfni" path="res://pages/home.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://di5cnoxq04e5n" path="res://controls/icon_button.tscn" id="2_1bvp3"]
+[ext_resource type="Script" uid="uid://c73mwcujpaesg" path="res://main.gd" id="2_5vw27"]
+[ext_resource type="Texture2D" uid="uid://ds42h7titdp71" path="res://icon.png" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c7n6hacrbxay5" path="res://controls/label_regular_paragraph.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://b2kflqihn4bcw" path="res://controls/navigation_container.tscn" id="5_7mycd"]
+[ext_resource type="Script" uid="uid://b724a5tvx6wvb" path="res://controls/navigate_to.gd" id="6_dg77c"]
+[ext_resource type="PackedScene" uid="uid://buiy1lyv1ifcu" path="res://pages/login.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://dr2vipdvn0ag8" path="res://pages/register.tscn" id="9_4c57u"]
+[ext_resource type="StyleBox" uid="uid://bnjakdc56fc7x" path="res://styles/background_gradiant.stylebox" id="9_kek77"]
+[ext_resource type="PackedScene" uid="uid://qv6hyiojc8r7" path="res://pages/resources.tscn" id="10_efxa6"]
+[ext_resource type="PackedScene" uid="uid://bcbos6dk7lcjd" path="res://pages/inventory.tscn" id="12_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://8ywctfx84amj" path="res://icons/go_back_white.png" id="14_w48qg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
+bg_color = Color(0.9529412, 0.9607843, 0.9529412, 1)
+border_width_bottom = 1
+border_color = Color(0.8156863, 0.8392157, 0.8117647, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ig7tw")
+script = ExtResource("2_5vw27")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="NavContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/NavContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/NavContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="NavHomeIcon" parent="MarginContainer/VBoxContainer/NavContainer/MarginContainer/HBoxContainer" instance=ExtResource("2_1bvp3")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+icon = ExtResource("2_h2yge")
+animation_duration = 0.03
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/NavContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="NavResources" parent="MarginContainer/VBoxContainer/NavContainer/MarginContainer/HBoxContainer/HBoxContainer" instance=ExtResource("4_lquwl")]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.21960784, 0.4, 0.25490198, 1)
+text = "Resources"
+
+[node name="NavigateTo" type="Node" parent="MarginContainer/VBoxContainer/NavContainer/MarginContainer/HBoxContainer/HBoxContainer/NavResources" node_paths=PackedStringArray("control")]
+script = ExtResource("6_dg77c")
+control = NodePath("..")
+to = "resources"
+metadata/_custom_type_script = "uid://b724a5tvx6wvb"
+
+[node name="NavInventory" parent="MarginContainer/VBoxContainer/NavContainer/MarginContainer/HBoxContainer/HBoxContainer" instance=ExtResource("4_lquwl")]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.21960784, 0.4, 0.25490198, 1)
+text = "Inventory"
+
+[node name="NavigateTo" type="Node" parent="MarginContainer/VBoxContainer/NavContainer/MarginContainer/HBoxContainer/HBoxContainer/NavInventory" node_paths=PackedStringArray("control")]
+script = ExtResource("6_dg77c")
+control = NodePath("..")
+to = "inventory"
+metadata/_custom_type_script = "uid://b724a5tvx6wvb"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/NavContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 32
+
+[node name="NavSignin" parent="MarginContainer/VBoxContainer/NavContainer/MarginContainer/HBoxContainer/HBoxContainer2" instance=ExtResource("4_lquwl")]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.21960784, 0.4, 0.25490198, 1)
+text = "Sign In"
+
+[node name="NavigateTo" type="Node" parent="MarginContainer/VBoxContainer/NavContainer/MarginContainer/HBoxContainer/HBoxContainer2/NavSignin" node_paths=PackedStringArray("control")]
+script = ExtResource("6_dg77c")
+control = NodePath("..")
+to = "login"
+metadata/_custom_type_script = "uid://b724a5tvx6wvb"
+
+[node name="NavSignup" parent="MarginContainer/VBoxContainer/NavContainer/MarginContainer/HBoxContainer/HBoxContainer2" instance=ExtResource("4_lquwl")]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.21960784, 0.4, 0.25490198, 1)
+text = "Sign Up"
+
+[node name="NavigateTo" type="Node" parent="MarginContainer/VBoxContainer/NavContainer/MarginContainer/HBoxContainer/HBoxContainer2/NavSignup" node_paths=PackedStringArray("control")]
+script = ExtResource("6_dg77c")
+control = NodePath("..")
+to = "register"
+metadata/_custom_type_script = "uid://b724a5tvx6wvb"
+
+[node name="NavigationContainer" parent="MarginContainer/VBoxContainer" instance=ExtResource("5_7mycd")]
+unique_name_in_owner = true
+layout_mode = 2
+start_page = "home"
+pages = Dictionary[String, PackedScene]({
+"home": ExtResource("2_0xm2m"),
+"inventory": ExtResource("12_ycdy4"),
+"login": ExtResource("7_272bh"),
+"register": ExtResource("9_4c57u"),
+"resources": ExtResource("10_efxa6")
+})
+
+[node name="PanelContainer" parent="MarginContainer/VBoxContainer/NavigationContainer/ScrollContainer" index="0"]
+theme_override_styles/panel = ExtResource("9_kek77")
+
+[node name="BGoBack" parent="MarginContainer/VBoxContainer/NavigationContainer/MarginContainer" index="0"]
+custom_minimum_size = Vector2(60, 60)
+theme_override_icons/icon = ExtResource("14_w48qg")
+
+[editable path="MarginContainer/VBoxContainer/NavigationContainer"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://di5cnoxq04e5n"]
+
+[ext_resource type="Script" uid="uid://bg32hhfq653rv" path="res://controls/icon_button.gd" id="1_1ilnb"]
+
+[node name="IconButton" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+flat = true
+expand_icon = true
+script = ExtResource("1_1ilnb")
+grow = 0.5
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

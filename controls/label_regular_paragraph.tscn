@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7n6hacrbxay5"]
+
+[ext_resource type="Script" uid="uid://b8hj2y82sticr" path="res://controls/label_regular_paragraph.gd" id="1_b5m0u"]
+
+[node name="LabelRegularParagraph" type="Label"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b5m0u")
